@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class ApplePieRecipe {
     ArrayList<Ingredient> IngredientList= new ArrayList<Ingredient>();
-    ArrayList<String> StepList= new ArrayList<String>();
+    ArrayList<String> stepList = new ArrayList<String>();
 
     public ApplePieRecipe(ArrayList<Ingredient> ingredientList, ArrayList<String> stepList) {
-        IngredientList = ingredientList;
-        StepList = stepList;
+        this.IngredientList = ingredientList;
+        this.stepList = stepList;
     }
 
     public ArrayList<Ingredient> getIngredientList() {
@@ -18,18 +18,30 @@ public class ApplePieRecipe {
     }
 
     public ArrayList<String> getStepList() {
-        return StepList;
+        return stepList;
     }
 
     public void setStepList(ArrayList<String> stepList) {
-        StepList = stepList;
+        this.stepList = stepList;
+    }
+
+    public void printRecept(){
+        System.out.println("Ingrediénten:");
+        for (Ingredient ingredient:IngredientList) {
+            System.out.println(ingredient.getAmount()+" " +ingredient.getMeasurement()+" "+ingredient.getName());
+        }
+        System.out.println("Stappen:");
+        for(int i=0; i<stepList.size(); i++){
+            String step= stepList.get(i);
+            System.out.println((i+1)+"."+step);
+        }
     }
 
     @Override
     public String toString() {
         return "ApplePieRecipe{" +
                 "IngredientList=" + IngredientList +
-                ", StepList=" + StepList +
+                ", StepList=" + stepList +
                 '}';
     }
 }
